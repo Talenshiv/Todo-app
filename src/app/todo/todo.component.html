@@ -1,0 +1,29 @@
+<section class="heading-section">
+  <h1 class="title is-1 has has-text-centered">Todos</h1>
+</section>
+
+<div class="todo-item" (click)="onTodoClicked(todo.id,todo.completed)" [class.completed]="todo.completed" *ngFor="let todo of dataService.todos">
+    <div class="check-box">
+      <i class="material-icons">check</i>
+    </div>
+
+    <div class="todo-text">
+      {{todo.id}} {{todo.text}}
+    </div>
+
+  <div class="todo-controls-box" (click)="$event.stopPropagation()">
+    <div class="todo-control-button" (click)="editTask(todo.id)">
+          <i class="material-icons">edit</i>
+    </div>
+
+    <div class="todo-control-button is-danger" [routerLink]="['/todo']" routerLinkActive="router-link-active" (click)="onDeleteTodo(todo.id)">
+       <i class="material-icons">delete</i>
+    </div>
+  </div>
+</div>
+
+<button class="button is-danger" role="button" [routerLink]="['new']" routerLinkActive="router-link-active">
+  <i class="material-icons">add</i>
+    New Todo
+</button>
+<router-outlet></router-outlet>

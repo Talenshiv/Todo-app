@@ -1,0 +1,43 @@
+<div class="container add-todo-box-container">
+  <div class="add-todo-box">
+
+    <form>
+      <div class="field is-grouped" style="margin: 0">
+        <div class="control is-expanded">
+          <input
+            name="text"
+            class="input"
+            type="text"
+            [(ngModel)]="text"
+            id="text"
+            #todoTextField="ngModel"
+            required
+            minlength="1"
+            placeholder="Type todo task here...">
+        </div>
+        <p class="control">
+          <a class="button alt-gradient-button btn-lg active"
+             role="button"
+             [routerLink]="['/todo']"
+             routerLinkActive="router-link-active">
+            Cancel
+          </a>
+          <button *ngIf="addMode" type="submit" (click)="addTodo()" class="button alt-gradient-button" role="button">
+            <i class="material-icons" >add</i>
+            Add
+          </button>
+          <button *ngIf="!addMode"
+            class="button alt-gradient-button"
+            (click)="changeText()">
+            <i class="material-icons">save</i>Save</button>
+        </p>
+      </div>
+
+    </form>
+    <div *ngIf="todoTextField.invalid">
+      <p class="help is-danger" *ngIf="todoTextField.errors?.required">Please enter the text of your todo</p>
+    </div>
+  </div>
+</div>
+
+
