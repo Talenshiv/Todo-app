@@ -23,13 +23,14 @@
             Cancel
           </a>
           <button *ngIf="addMode" type="submit" (click)="addTodo()" class="button alt-gradient-button" role="button">
-            <i class="material-icons" >add</i>
+            <i class="material-icons">add</i>
             Add
           </button>
           <button *ngIf="!addMode"
-            class="button alt-gradient-button"
-            (click)="changeText()">
-            <i class="material-icons">save</i>Save</button>
+                  class="button alt-gradient-button"
+                  (click)="changeText()">
+            <i class="material-icons">save</i>Save
+          </button>
         </p>
       </div>
 

@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from "../share/data.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Todo} from "../share/todo.model";
-import { TodoComponent} from "../todo/todo.component";
-
 
 
 @Component({
@@ -16,7 +14,7 @@ export class EditComponent implements OnInit {
   text: any;
   addMode: boolean = false
 
-  constructor(private dataService: DataService, private route: ActivatedRoute, public router: Router, private todoComponent: TodoComponent) {
+  constructor(private dataService: DataService, private route: ActivatedRoute) {
     this.route.params.subscribe((params) => {
       const currentTodo = this.dataService.getTodo(+params.id);
       if (params.id === 'new') {
